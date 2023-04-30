@@ -22,7 +22,7 @@ def read_image(image_path, is_gray):
         image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
         image = np.expand_dims(image.T, 0) # 1 * W * H
     else:
-        image = cv2.imread(r image_path)
+        image = cv2.imread(r, image_path)
         image = (cv2.cvtColor(image, cv2.COLOR_BGR2RGB)).transpose(2, 1, 0) # 3 * W * H
     
     return utils.normalize(image)
