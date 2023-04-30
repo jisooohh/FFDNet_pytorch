@@ -99,7 +99,7 @@ def batch_psnr(img, imclean, data_range):
     imgclean = imclean.data.cpu().numpy().astype(np.float32)
     psnr = 0
     for i in range(img_cpu.shape[0]):
-        psnr += compare_psnr(imgclean[i, :, :, :], img_cpu[i, :, :, :], data_range=data_range)
+        psnr += peak_signal_noise_ratio(imgclean[i, :, :, :], img_cpu[i, :, :, :], data_range=data_range)
     return psnr / img_cpu.shape[0]
 
 def variable_to_cv2_image(varim):
